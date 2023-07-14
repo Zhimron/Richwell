@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
-import TextField from "@mui/material/TextField";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 function Datepick(props) {
   const { label, value, onChange, name } = props;
@@ -22,7 +22,6 @@ function Datepick(props) {
         label={label}
         value={value}
         onChange={handleDateChange}
-        renderInput={(params) => <TextField {...params} />}
         name={name}
         inputFormat="MM.dd.yyyy"
         className={`w-full`}

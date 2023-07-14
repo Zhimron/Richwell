@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Grades() {
+  useEffect(() => {
+    document.title = "Grades";
+  }, []);
   return (
     <div className=" w-full flex justify-center">
       <table className="capitalize h-full w-fit">

@@ -9,6 +9,9 @@ import { useFetch } from "../../hooks/useFetch";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 export const Login = () => {
+  useEffect(() => {
+    document.title = "Login";
+  }, []);
   const [emailAddress, setEmailAddress] = useState("");
   const [studentId, setStudentId] = useState("");
 

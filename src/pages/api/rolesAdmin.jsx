@@ -161,3 +161,42 @@ export const postcredroles = async (credentials) => {
 
   return await response.json();
 };
+
+export const listsubject = async () => {
+  try {
+    const response = await fetch(
+      `https://richwellcolleges.edu.ph/api/Subjects`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch employee data");
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching employee data:", error);
+    throw error;
+  }
+};
+
+export const postlistofsubject = async (credentials) => {
+  const response = await fetch(
+    "https://richwellcolleges.edu.ph/api/PostSubject",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+      },
+      body: JSON.stringify(credentials),
+    }
+  );
+
+  return await response.json();
+};

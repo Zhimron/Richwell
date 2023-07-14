@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { getstudentbooks } from "../api/studentInfo";
 import { useQuery } from "@tanstack/react-query";
 import Table from "../../components/table/Table";
 
 function Books() {
+  useEffect(() => {
+    document.title = "Books";
+  }, []);
   const { data, isLoading, isError, error } = useQuery(
     ["books"],
     getstudentbooks

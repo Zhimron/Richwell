@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { getstudentMiscellaneous } from "../api/studentInfo";
 import { useQuery } from "@tanstack/react-query";
 import Table from "../../components/table/Table";
 
 function Miscellaneous() {
+  useEffect(() => {
+    document.title = "Miscellaneous";
+  }, []);
   const { data, isLoading, isError, error } = useQuery(
-    ["books"],
+    ["Miscellaneous"],
     getstudentMiscellaneous
   );
   const columns = [

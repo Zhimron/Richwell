@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Lottie from "lottie-react";
 import lost from "../assets/lottie/404.json";
 import { motion } from "framer-motion";
 import ContainedButton from "./buttons/ContainedButton";
 
 const PageNotFound = () => {
+  useEffect(() => {
+    document.title = "PageNotFound";
+  }, []);
   return (
     <div className="relative grid place-items-center h-screen">
       <div className="text-center">

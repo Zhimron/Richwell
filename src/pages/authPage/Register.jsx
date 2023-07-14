@@ -3,13 +3,16 @@ import React from "react";
 import google from "../../assets/google.svg";
 import facebook from "../../assets/facebook.svg";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import heroBg from "../../assets/images/admin.png";
 import SignUpInfo from "./components/SignUpInfo";
 import PersonalInfo from "./components/PersonalInfo";
 import OtherInfo from "./components/OtherInfo";
 
 export const Register = () => {
+  useEffect(() => {
+    document.title = "Create account";
+  }, []);
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     email: "",

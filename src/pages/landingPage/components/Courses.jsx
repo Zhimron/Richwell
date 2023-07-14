@@ -1,21 +1,21 @@
-import React from "react";
-import { AiOutlineArrowRight } from "react-icons/ai";
-import { motion } from "framer-motion";
-import laptop from "../../../assets/images/laptop.png";
-import IS from "../../../assets/images/IS.png";
-import reactCube from "../../../assets/images/reactCube.png";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Pagination } from "swiper";
-import bartending from "../../../assets/images/bartending.jpg";
-import bpo from "../../../assets/images/bpo.jpg";
-import beautycare from "../../../assets/images/beautycare.jpg";
+import React from 'react';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import { motion } from 'framer-motion';
+import laptop from '../../../assets/images/laptop.png';
+import IS from '../../../assets/images/IS.png';
+import reactCube from '../../../assets/images/reactCube.png';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
+import bartending from '../../../assets/images/bartending.jpg';
+import bpo from '../../../assets/images/bpo.jpg';
+import beautycare from '../../../assets/images/beautycare.jpg';
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import Carosel from "../../../components/Carosel";
-import { academicOfferings } from "../../../data";
-import ContainedButton from "../../../components/buttons/ContainedButton";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import Carosel from '../../../components/Carosel';
+import { academicOfferings } from '../../../data';
+import ContainedButton from '../../../components/buttons/ContainedButton';
 
 SwiperCore.use([Autoplay]);
 
@@ -26,15 +26,13 @@ function Courses() {
         <section
           key={acads.course}
           id="about"
-          className="w-full flex h-screen justify-center mt-[2rem] p-5"
-        >
+          className="w-full flex h-screen justify-center mt-[2rem] p-5">
           <Swiper
             pagination={{
               dynamicBullets: true,
             }}
             modules={[Pagination]}
-            className="mySwiper"
-          >
+            className="mySwiper">
             <SwiperSlide>
               <div className="relative bg-white w-full h-screen grid place-items-center">
                 <motion.div
@@ -43,9 +41,8 @@ function Courses() {
                   transition={{
                     duration: 5,
                     repeat: Infinity,
-                    repeatType: "loop",
-                  }}
-                >
+                    repeatType: 'loop',
+                  }}>
                   <motion.img
                     src={reactCube}
                     alt=""
@@ -67,8 +64,7 @@ function Courses() {
                           transition: { duration: 0.4 },
                           opacity: 1,
                         }}
-                        initial={{ y: 100, opacity: 0.3 }}
-                      >
+                        initial={{ y: 100, opacity: 0.3 }}>
                         <img src={acads.img1} alt="" />
                       </motion.div>
                       <motion.h1
@@ -78,8 +74,7 @@ function Courses() {
                           transition: { duration: 0.4 },
                           opacity: 1,
                         }}
-                        initial={{ y: 100, opacity: 0.3 }}
-                      >
+                        initial={{ y: 100, opacity: 0.3 }}>
                         Learn About Our
                       </motion.h1>
                       <div className="w-full flex justify-center">
@@ -90,8 +85,7 @@ function Courses() {
                             transition: { duration: 0.4 },
                             opacity: 1,
                           }}
-                          initial={{ y: 100, opacity: 0.3 }}
-                        >
+                          initial={{ y: 100, opacity: 0.3 }}>
                           <ContainedButton
                             label={acads.course}
                             bgColor="#833AB4"
@@ -107,8 +101,7 @@ function Courses() {
                           transition: { duration: 0.4 },
                           opacity: 1,
                         }}
-                        initial={{ y: 100, opacity: 0.3 }}
-                      >
+                        initial={{ y: 100, opacity: 0.3 }}>
                         School of
                       </motion.h1>
                       <div className="w-[500px] -ml-1 -mt-10">
@@ -129,8 +122,7 @@ function Courses() {
                             transition: { duration: 0.4 },
                             opacity: 1,
                           }}
-                          initial={{ y: 100, opacity: 0.3 }}
-                        >
+                          initial={{ y: 100, opacity: 0.3 }}>
                           ___
                         </motion.div>
                         <motion.h1
@@ -140,8 +132,7 @@ function Courses() {
                             transition: { duration: 0.4 },
                             opacity: 1,
                           }}
-                          initial={{ y: 100, opacity: 0.3 }}
-                        >
+                          initial={{ y: 100, opacity: 0.3 }}>
                           Decode your future.
                         </motion.h1>
                       </div>
@@ -154,9 +145,8 @@ function Courses() {
                     transition={{
                       duration: 1.5,
                       repeat: Infinity,
-                      repeatType: "loop",
-                    }}
-                  >
+                      repeatType: 'loop',
+                    }}>
                     <motion.img
                       src={laptop}
                       alt=""

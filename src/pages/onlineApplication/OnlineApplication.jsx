@@ -8,6 +8,9 @@ import BachelorsForm from "./forms/BachelorsForm";
 import Progressbar from "../../components/Progressbar";
 
 const OnlineApplication = () => {
+  useEffect(() => {
+    document.title = "Online Application";
+  }, []);
   const navigate = useNavigate();
   // const [steps, setSteps] = useState(0);
 

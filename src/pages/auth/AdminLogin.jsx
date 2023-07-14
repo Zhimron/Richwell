@@ -1,18 +1,21 @@
-import InputText from '../../components/form/textfield/Input';
-import React, { useEffect, useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
-import { loginAdmin } from '../api/loginAdmin';
-import { useMutation } from '@tanstack/react-query';
-import useLoginCredZustand from '../../store/useLoginCredZustand';
-import { useQueryRefreshLogin } from '../../store/useQueryRefreshToken';
-import ModalFailure from '../../components/modal/ModalFailure';
-import { Spinner } from '../../components/loading/Spinner';
-import heroBg from '../../assets/images/admin.png';
+import InputText from "../../components/form/textfield/Input";
+import React, { useEffect, useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { motion } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
+import { loginAdmin } from "../api/loginAdmin";
+import { useMutation } from "@tanstack/react-query";
+import useLoginCredZustand from "../../store/useLoginCredZustand";
+import { useQueryRefreshLogin } from "../../store/useQueryRefreshToken";
+import ModalFailure from "../../components/modal/ModalFailure";
+import { Spinner } from "../../components/loading/Spinner";
+import heroBg from "../../assets/images/admin.png";
 
 const AdminLogin = () => {
+  useEffect(() => {
+    document.title = "Admin Login";
+  }, []);
   const navigate = useNavigate();
   const { data, isLoading, mutate, isError } = useMutation(loginAdmin);
   const [invalidAuth, setInvalidAuth] = useState(false);
@@ -37,33 +40,33 @@ const AdminLogin = () => {
 
   useEffect(() => {
     if (data) {
-      if (data.message !== 'invalid authentication') {
-        navigate('/private/roles');
-        localStorage.setItem('access_token', data.access_token);
-        localStorage.setItem('refresh_token', data.refresh_token);
+      if (data.message !== "invalid authentication") {
+        navigate("/private/roles");
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("refresh_token", data.refresh_token);
         toggleAuthentication();
       }
     } else {
-      console.log('Invalid login credentials');
+      console.log("Invalid login credentials");
     }
   }, [data]);
 
   useEffect(() => {
     if (checkData) {
       if (!checkData.message) {
-        localStorage.setItem('access_token', checkData.access_token);
-        localStorage.setItem('refresh_token', checkData.refresh_token);
+        localStorage.setItem("access_token", checkData.access_token);
+        localStorage.setItem("refresh_token", checkData.refresh_token);
         toggleAuthToTrue();
-        navigate('/private/roles');
+        navigate("/private/roles");
       }
     } else {
-      console.log('Global auth not set');
+      console.log("Global auth not set");
     }
   }, [checkData]);
 
   useEffect(() => {
     if (data) {
-      if (data.message === 'invalid authentication') {
+      if (data.message === "invalid authentication") {
         setInvalidAuth(true);
       }
     }
@@ -74,11 +77,11 @@ const AdminLogin = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    id: Yup.string().required('Employee ID is required *'),
+    id: Yup.string().required("Employee ID is required *"),
     email: Yup.string()
-      .email('Invalid email format')
-      .required('Email is required *'),
-    password: Yup.string().required('Password is required *'),
+      .email("Invalid email format")
+      .required("Email is required *"),
+    password: Yup.string().required("Password is required *"),
   });
 
   return (
@@ -90,8 +93,8 @@ const AdminLogin = () => {
       {invalidAuth && (
         <ModalFailure
           header={<h1 className="font-bold text-4xl text-gray-600"> Ooops!</h1>}
-          message={'Something went wrong. Authentication Failed.'}
-          button={'Try Again'}
+          message={"Something went wrong. Authentication Failed."}
+          button={"Try Again"}
           closeModal={closeModal}
         />
       )}
@@ -102,8 +105,9 @@ const AdminLogin = () => {
         ) : (
           <motion.div
             className="w-[375px] h-[485px] rounded-lg shadow-lg mt-[6rem] bg-gray-100 "
-            initial={{ opacity: 0, x: '-100vw' }}
-            animate={{ opacity: 1, x: 0 }}>
+            initial={{ opacity: 0, x: "-100vw" }}
+            animate={{ opacity: 1, x: 0 }}
+          >
             <h1 className="text-3xl text-center mt-6">Employee Portal</h1>
             <div className="flex justify-center">
               <img
@@ -114,12 +118,13 @@ const AdminLogin = () => {
             </div>
             <Formik
               initialValues={{
-                id: '',
-                email: '',
-                password: '',
+                id: "",
+                email: "",
+                password: "",
               }}
               validationSchema={validationSchema}
-              onSubmit={handleSubmit}>
+              onSubmit={handleSubmit}
+            >
               {({ errors, isValid }) => (
                 <Form className="admin login form">
                   <div className="px-4">
@@ -170,7 +175,8 @@ const AdminLogin = () => {
 
                   <label
                     htmlFor="checkbox"
-                    className="inline-flex items-center justify-between cursor-pointer ml-4 my-4">
+                    className="inline-flex items-center justify-between cursor-pointer ml-4 my-4"
+                  >
                     <Field
                       type="checkbox"
                       name="rememberMe"
@@ -185,7 +191,8 @@ const AdminLogin = () => {
                     {isValid && (
                       <button
                         className="bg-purple-800 hover:shadow-md  text-white font-bold capitalize py-2 px-4 w-full rounded p-6"
-                        type="submit">
+                        type="submit"
+                      >
                         Login
                       </button>
                     )}

@@ -1,11 +1,14 @@
-import React from 'react';
-import { ResponsivePie } from '@nivo/pie';
-import { useQuery } from '@tanstack/react-query';
-import { piecharts } from '../../../api/rolesAdmin';
-import { Loading } from '../../../../components/loading/Loading';
+import React, { useEffect } from "react";
+import { ResponsivePie } from "@nivo/pie";
+import { useQuery } from "@tanstack/react-query";
+import { piecharts } from "../../../api/rolesAdmin";
+import { Loading } from "../../../../components/loading/Loading";
 
 const PieChart = () => {
-  const { data, isLoading, isError, error } = useQuery(['yearly'], piecharts);
+  useEffect(() => {
+    document.title = "PieChart";
+  }, []);
+  const { data, isLoading, isError, error } = useQuery(["yearly"], piecharts);
   if (isLoading) {
     return (
       <div>
@@ -38,37 +41,37 @@ const PieChart = () => {
           cornerRadius={3}
           activeInnerRadiusOffset={17}
           activeOuterRadiusOffset={8}
-          colors={{ scheme: 'pink_yellowGreen' }}
+          colors={{ scheme: "pink_yellowGreen" }}
           borderWidth={1}
           borderColor={{
-            from: 'color',
-            modifiers: [['darker', '2.2']],
+            from: "color",
+            modifiers: [["darker", "2.2"]],
           }}
           arcLinkLabelsSkipAngle={10}
           arcLinkLabelsTextColor="#5e227c"
           arcLinkLabelsThickness={2}
-          arcLinkLabelsColor={{ from: 'color' }}
+          arcLinkLabelsColor={{ from: "color" }}
           arcLabelsRadiusOffset={0.6}
           arcLabelsSkipAngle={4}
           arcLabelsTextColor={{
-            from: 'color',
-            modifiers: [['darker', '1.4']],
+            from: "color",
+            modifiers: [["darker", "1.4"]],
           }}
           defs={[
             {
-              id: 'dots',
-              type: 'patternDots',
-              background: 'inherit',
-              color: 'rgba(255, 255, 255, 0.3)',
+              id: "dots",
+              type: "patternDots",
+              background: "inherit",
+              color: "rgba(255, 255, 255, 0.3)",
               size: 4,
               padding: 1,
               stagger: true,
             },
             {
-              id: 'lines',
-              type: 'patternLines',
-              background: 'inherit',
-              color: 'rgba(255, 255, 255, 0.3)',
+              id: "lines",
+              type: "patternLines",
+              background: "inherit",
+              color: "rgba(255, 255, 255, 0.3)",
               rotation: -45,
               lineWidth: 6,
               spacing: 10,
@@ -77,31 +80,31 @@ const PieChart = () => {
           fill={[
             {
               match: {
-                id: 'dots',
+                id: "dots",
               },
-              value: 'lines',
+              value: "lines",
             },
           ]}
           legends={[
             {
-              anchor: 'bottom',
-              direction: 'row',
+              anchor: "bottom",
+              direction: "row",
               justify: false,
               translateX: 17,
               translateY: 57,
               itemsSpacing: 16,
               itemWidth: 100,
               itemHeight: 18,
-              itemTextColor: '#999',
-              itemDirection: 'left-to-right',
+              itemTextColor: "#999",
+              itemDirection: "left-to-right",
               itemOpacity: 1,
               symbolSize: 22,
-              symbolShape: 'circle',
+              symbolShape: "circle",
               effects: [
                 {
-                  on: 'hover',
+                  on: "hover",
                   style: {
-                    itemTextColor: '#000',
+                    itemTextColor: "#000",
                   },
                 },
               ],

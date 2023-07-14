@@ -26,10 +26,10 @@ const HeaderInformation = ({ register, error, control, getValues }) => {
     { value: "Transferee", label: "Transferee" },
   ];
   const yearLevel = [
-    { value: "First Year", label: "First Year" },
-    { value: "Second Year", label: "Second Year" },
-    { value: "Third Year", label: "Third Year" },
-    { value: "Fourth Year", label: "Fourth Year" },
+    { value: "1", label: "First Year" },
+    { value: "2", label: "Second Year" },
+    { value: "3", label: "Third Year" },
+    { value: "4", label: "Fourth Year" },
   ];
   const selectTerm = [
     { value: "1st Term", label: "1st Term" },

@@ -5,6 +5,9 @@ import StickyHeadTable from "../../components/table/StickyHeadTable";
 import AddRoles from "./AddRoles";
 
 const Employee = () => {
+  useEffect(() => {
+    document.title = "Employee";
+  }, []);
   const { data, isLoading, isError, error } = useQuery(
     ["getallemployees"],
     getallusers

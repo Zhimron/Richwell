@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function About() {
+  useEffect(() => {
+    document.title = "About";
+  }, []);
   return (
     <section id="about" className="h-screen w-full  mt-[6rem]">
       <div className="bg-red-200 rounded-md mx-auto h-[600px] w-[80rem]">

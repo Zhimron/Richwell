@@ -1,16 +1,19 @@
-import React, { useEffect } from 'react';
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
-import InputText from '../../components/form/textfield/Input';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { useMutation } from '@tanstack/react-query';
-import { registerAdmin } from '../api/registerAdmin';
-import { useNavigate } from 'react-router-dom';
-import heroBg from '../../assets/images/admin.png';
-import { motion } from 'framer-motion';
+import React, { useEffect } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import InputText from "../../components/form/textfield/Input";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { useMutation } from "@tanstack/react-query";
+import { registerAdmin } from "../api/registerAdmin";
+import { useNavigate } from "react-router-dom";
+import heroBg from "../../assets/images/admin.png";
+import { motion } from "framer-motion";
 
 const AdminRegister = () => {
+  useEffect(() => {
+    document.title = "Admin Register";
+  }, []);
   const { mutate, isLoading, data } = useMutation(registerAdmin);
   const navigate = useNavigate();
 
@@ -34,21 +37,21 @@ const AdminRegister = () => {
   useEffect(() => {
     if (data) {
       toast.info(data.message);
-      navigate('/admin-login');
+      navigate("/admin-login");
     }
   }, [data, navigate]);
 
   const validationSchema = Yup.object({
-    employeeId: Yup.number().required('Employee ID is required *'),
-    username: Yup.string().required('Username is required *'),
-    password: Yup.string().required('Password is required *'),
+    employeeId: Yup.number().required("Employee ID is required *"),
+    username: Yup.string().required("Username is required *"),
+    password: Yup.string().required("Password is required *"),
     email: Yup.string()
-      .email('Invalid email format *')
-      .required('Email is required *'),
-    firstname: Yup.string().required('Firstname is required *'),
-    middlename: Yup.string().required('Middlename is required *'),
-    lastname: Yup.string().required('Lastname is required *'),
-    department: Yup.string().required('Department is required *'),
+      .email("Invalid email format *")
+      .required("Email is required *"),
+    firstname: Yup.string().required("Firstname is required *"),
+    middlename: Yup.string().required("Middlename is required *"),
+    lastname: Yup.string().required("Lastname is required *"),
+    department: Yup.string().required("Department is required *"),
   });
   return (
     <>
@@ -60,23 +63,25 @@ const AdminRegister = () => {
 
         <Formik
           initialValues={{
-            employeeId: '',
-            username: '',
-            password: '',
-            email: '',
-            firstname: '',
-            middlename: '',
-            lastname: '',
-            department: '',
+            employeeId: "",
+            username: "",
+            password: "",
+            email: "",
+            firstname: "",
+            middlename: "",
+            lastname: "",
+            department: "",
           }}
           validationSchema={validationSchema}
-          onSubmit={handleSubmit}>
+          onSubmit={handleSubmit}
+        >
           {({ isValid, errors }) => (
             <Form className="flex flex-grow justify-center p-4 md:p-16">
               <motion.div
-                initial={{ opacity: 0, x: '-100vw' }}
+                initial={{ opacity: 0, x: "-100vw" }}
                 animate={{ opacity: 1, x: 0 }}
-                className="flex-wrap flex   overflow-hidden">
+                className="flex-wrap flex   overflow-hidden"
+              >
                 <div className="h-[530px] w-full md:w-[400px] bg-gray-100 rounded-l-md">
                   <h1 className="text-3xl pl-[1.875rem] mt-8 mb-[26px] text-fuchsia-900 flex gap-2">
                     <span className="hidden sm:hidden md:block lg:block">
@@ -222,8 +227,9 @@ const AdminRegister = () => {
                       <button
                         className="bg-[#833AB4] hover:shadow-md text-white font-bold capitalize py-2 w-full rounded-md"
                         disabled={isLoading}
-                        type="submit">
-                        {isLoading ? 'Loading...' : 'Register'}
+                        type="submit"
+                      >
+                        {isLoading ? "Loading..." : "Register"}
                       </button>
                     )}
                   </div>

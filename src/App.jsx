@@ -1,34 +1,35 @@
-import React, { useState, useEffect } from "react";
-import About from "./pages/home/About";
-import LandingPage from "./pages/landingPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Login } from "./pages/authPage/Login";
-import { Register } from "./pages/authPage/Register";
-import { Loading } from "./components/loading/Loading";
-import StudentUi from "./pages/student/StudentUi";
-import Admin from "./pages/private/admin";
-import OnlineApplication from "./pages/onlineApplication/OnlineApplication";
-import BachelorsForm from "./pages/onlineApplication/forms/BachelorsForm";
-import ScrollToTop from "./components/ScrollTop";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import AdminLogin from "./pages/auth/AdminLogin";
-import PageNotFound from "./components/PageNotFound";
-import Roles from "./pages/private/roles/index";
-import PrivateRoute from "./routes/PrivateRoute";
-import AdminRegister from "./pages/auth/AdminRegister";
-import MyForm from "./pages/onlineApplication/forms/test";
-import Registar from "./pages/private/registration/index";
-import EnrollmentQueue from "./pages/private/registration/EnrollmentQueue";
-import BarChart from "./pages/private/admin/pages/BarChart";
-import Home from "./pages/private/admin/pages/Home";
-import LineChart from "./pages/private/admin/pages/LineChart";
-import Grades from "./pages/student/Grades";
-import Books from "./pages/student/Books";
-import AddBooks from "./pages/addmiscbooks/AddBooks";
-import Miscellanious from "./pages/student/Miscellanious";
-import PieChart from "./pages/private/admin/pages/PieChart";
-import Employee from "./pages/private/admin/pages/Employee";
+import React, { useState, useEffect } from 'react';
+import About from './pages/home/About';
+import LandingPage from './pages/landingPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Login } from './pages/authPage/Login';
+import { Register } from './pages/authPage/Register';
+import { Loading } from './components/loading/Loading';
+import StudentUi from './pages/student/StudentUi';
+import Admin from './pages/private/admin';
+import OnlineApplication from './pages/onlineApplication/OnlineApplication';
+import BachelorsForm from './pages/onlineApplication/forms/BachelorsForm';
+import ScrollToTop from './components/ScrollTop';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import AdminLogin from './pages/auth/AdminLogin';
+import PageNotFound from './components/PageNotFound';
+import Roles from './pages/private/roles/index';
+import PrivateRoute from './routes/PrivateRoute';
+import AdminRegister from './pages/auth/AdminRegister';
+import MyForm from './pages/onlineApplication/forms/test';
+import Registar from './pages/private/registration/index';
+import EnrollmentQueue from './pages/private/registration/EnrollmentQueue';
+import BarChart from './pages/private/admin/pages/BarChart';
+import Home from './pages/private/admin/pages/Home';
+import LineChart from './pages/private/admin/pages/LineChart';
+
+import AddBooks from './pages/addmiscbooks/AddBooks';
+
+import PieChart from './pages/private/admin/pages/PieChart';
+import Employee from './pages/private/admin/pages/Employee';
+import Subject from './pages/private/registration/pages/Subject';
+import CreateSubject from './pages/private/registration/pages/CreateSubject';
 
 export const App = () => {
   const [loading, setLoading] = useState(false);
@@ -57,17 +58,14 @@ export const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
             <Route path="/studentportal" element={<StudentUi />} />
-            <Route path="0" element={<Grades />} />
-            <Route path="1" element={<Books />} />
-            <Route path="2" element={<Miscellanious />} />
-            <Route path="addmiscbooks" element={<AddBooks />} />
 
+            <Route path="addmiscbooks" element={<AddBooks />} />
             <Route path="/applyNow" element={<OnlineApplication />} />
             <Route path="/application" element={<BachelorsForm />} />
             <Route path="/admin-register" element={<AdminRegister />} />
             <Route path="/test" element={<MyForm />} />
-
             <Route path="/admin-login" element={<AdminLogin />} />
+
             {/* Private Routes */}
             <Route path="/private" element={<PrivateRoute />}>
               <Route element={<Admin />}>
@@ -80,6 +78,7 @@ export const App = () => {
               </Route>
               <Route path="admin-registration" element={<Registar />}>
                 <Route path="enrollment-queue" element={<EnrollmentQueue />} />
+                <Route path="list-subject" element={<Subject />} />
               </Route>
               <Route path="roles" element={<Roles />} exact />
             </Route>

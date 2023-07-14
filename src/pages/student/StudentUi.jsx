@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import ContainedButton from "../../components/buttons/ContainedButton";
 import student from "../.../../../assets/images/student.png";
@@ -13,26 +13,38 @@ import Books from "./Books";
 import Miscellaneous from "./Miscellanious";
 import Grades from "./Grades";
 import StudentInfoLog from "./StudentInfoLog";
+import Subject from "../student/Subject";
 
 const StudentUi = (props) => {
+  useEffect(() => {
+    document.title = "Student Portal";
+  }, []);
   const { value, toggleValue } = useToggle(false);
   const [showBooks, setShowBooks] = useState(true);
   const [showMiscellaneous, setShowMiscellaneous] = useState(false);
   const [showGrades, setShowGrades] = useState(false);
-
+  const [showSubject, setShowSubject] = useState(false);
   const handleButtonClick = (component) => {
     if (component === "books") {
       setShowBooks(!showBooks);
       setShowMiscellaneous(false);
       setShowGrades(false);
+      setShowSubject(false);
     } else if (component === "miscellaneous") {
       setShowMiscellaneous(!showMiscellaneous);
       setShowBooks(false);
       setShowGrades(false);
+      setShowSubject(false);
     } else if (component === "grades") {
       setShowGrades(!showGrades);
       setShowBooks(false);
       setShowMiscellaneous(false);
+      setShowSubject(false);
+    } else if (component === "Subject") {
+      setShowSubject(!showSubject);
+      setShowBooks(false);
+      setShowMiscellaneous(false);
+      setShowGrades(false);
     }
   };
   return (
@@ -66,28 +78,12 @@ const StudentUi = (props) => {
                   href="#"
                   class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
-                  Dashboard
+                  Change Password
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Settings
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Earnings
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
+                  href="Login"
                   class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   Sign out
@@ -177,6 +173,9 @@ const StudentUi = (props) => {
                 <div className=" text-center  cursor-pointer underlineHover ">
                   <h1 onClick={() => handleButtonClick("grades")}>Grades</h1>
                 </div>
+                <div className=" text-center  cursor-pointer underlineHover ">
+                  <h1 onClick={() => handleButtonClick("Subject")}>Subject</h1>
+                </div>
               </div>
               <hr />
 
@@ -184,6 +183,7 @@ const StudentUi = (props) => {
                 {showGrades && <Grades />}
                 {showBooks && <Books />}
                 {showMiscellaneous && <Miscellaneous />}
+                {showSubject && <Subject />}
               </div>
             </div>
           </div>

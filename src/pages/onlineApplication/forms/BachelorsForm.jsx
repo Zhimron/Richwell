@@ -147,6 +147,9 @@ const schema = z.object({
 });
 
 const BachelorsForm = () => {
+  useEffect(() => {
+    document.title = "Bachelors Enrollment Form";
+  }, []);
   const { mutate, isLoading, data } = useMutation(formApi);
   // const [gg, setGg] = useState(true);
 

@@ -9,6 +9,9 @@ import { RightComponent } from "./Right";
 import useLoginCredZustand from "../../../store/useLoginCredZustand";
 
 const Roles = () => {
+  useEffect(() => {
+    document.title = "Roles";
+  }, []);
   const { data, isLoading, isError, error } = useQuery(["roles"], getroles);
   const { isAuthenticated } = useLoginCredZustand();
 

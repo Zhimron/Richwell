@@ -32,7 +32,7 @@ function ReusableVirtualizedTable({ data, columns, renderHeader, renderRow }) {
   return (
     <Paper
       style={{
-        height: 248,
+        height: 348,
         width: "100%",
         background: "rgb(0, 0, 0, 0.1)",
         backdropFilter: "blur(10px)",
@@ -43,9 +43,9 @@ function ReusableVirtualizedTable({ data, columns, renderHeader, renderRow }) {
         components={VirtuosoTableComponents}
         fixedHeaderContent={renderHeader}
         itemContent={renderRow}
+        columns={columns}
         sx={{
           width: "100%",
-
           background: "rgb(0, 0, 0, 0.0)",
           backdropFilter: "blur(10px)",
         }}

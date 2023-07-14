@@ -23,7 +23,14 @@ export default function MUITable({ columns, rows }) {
 
   return (
     <div className="w-full h-full rounded-lg shadow-md bluring">
-      <Paper sx={{ width: "100%", overflow: "hidden" }}>
+      <Paper
+        sx={{
+          width: "100%",
+          overflow: "auto",
+          background: "rgb(0, 0, 0, 0.1)",
+          backdropFilter: "blur(10px)",
+        }}
+      >
         <TableContainer sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>

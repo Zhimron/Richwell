@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import InputText from "../../../../components/form/textfield/Input";
 import SelectItems from "../../../../components/form/select/SelectItems";
 import { DateField } from "@mui/x-date-pickers";
@@ -25,6 +25,11 @@ const StudentInfo = ({
 
   const handleImageClick = () => {
     inputRef.current.click();
+  };
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
   };
 
   const image = useImage;
@@ -121,7 +126,12 @@ const StudentInfo = ({
           register={register}
           error={error?.citizenship || ""}
         />
-        <Datepick label="Date Of Birth" name="dateOfBirth" />
+        <Datepick
+          label="Date Of Birth"
+          value={selectedDate}
+          onChange={handleDateChange}
+          name="dateOfBirth"
+        />
       </div>
       <div className="flex gap-2 mb-5">
         <InputText

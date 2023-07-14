@@ -50,17 +50,6 @@ const NewStudent = () => {
       initial={{ scale: 0, opacity: 0.2 }}
     >
       <motion.div
-        className="absolute w-[350px] left-0 -z-20"
-        initial={{ rotate: -90, x: 100 }}
-        whileInView={{ x: 0 }}
-        transition={{
-          duration: 2,
-          ease: "easeInOut",
-        }}
-      >
-        <img src={cat} alt="" />
-      </motion.div>
-      <motion.div
         className="w-[60%] p-5  shadow-md bg-white shadow-violet-600 rounded-md mb-5"
         whileHover={{ scale: 1.02 }}
       >

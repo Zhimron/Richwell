@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OutlinedButton from "../../../components/buttons/OutlinedButton";
 import SideInformation from "../../onlineApplication/forms/content/SideInformation";
-import ModalInformation from "./ModalInformation";
+import ModalInformation from "../components/modal/ModalInformation";
 import { useMutation } from "@tanstack/react-query";
+import { ToastContainer, toast } from "react-toastify";
 
 const EnrollmentQueue = () => {
+  useEffect(() => {
+    document.title = "EnrollmentQueue";
+  }, []);
   const [newData, setNewData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
   const [show, setShow] = useState(false);
@@ -67,7 +71,7 @@ const EnrollmentQueue = () => {
         course: selectedRowData.course,
         admitAS: selectedRowData.admit_type,
         yrLevel: selectedRowData.school_level,
-        syTerm: selectedRowData.term,
+        syTerm: eTerm,
         syYear: selectedRowData.school_year,
         firstName: selectedRowData.first_name,
         middleName: selectedRowData.middle_name,
@@ -123,9 +127,18 @@ const EnrollmentQueue = () => {
         guardianEmail: selectedRowData.guardian_email,
         guardianMobileNumber: selectedRowData.guardian_contactno,
       });
+      toast.success("Enrollment Successful!");
+      setTimeout(() => {
+        // Code to execute after the timeout
+        handleCloseModal();
+      }, 1000);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleCloseModal = () => {
+    setShow(false);
   };
 
   const handleRowClick = (index) => {
@@ -147,6 +160,7 @@ const EnrollmentQueue = () => {
   }
   return (
     <div className="">
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
       <section className="py-1 bg-blueGray-50">
         <div className="w-full  mb-12 xl:mb-0 px-4 mx-auto ">
           <div className="relative flex flex-col break-words bluring overflow-x-auto max-h-[80vh] w-full mb-6 shadow-lg  rounded ">

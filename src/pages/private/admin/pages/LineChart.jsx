@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import { useQuery } from "@tanstack/react-query";
 import { linecharts } from "../../../api/rolesAdmin";
 import { Loading } from "../../../../components/loading/Loading";
 
 const LineChart = () => {
+  useEffect(() => {
+    document.title = "LineChart";
+  }, []);
   const { data, isLoading, isError, error } = useQuery(["monthly"], linecharts);
 
   if (isLoading) {

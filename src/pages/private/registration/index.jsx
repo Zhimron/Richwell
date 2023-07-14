@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sidebar } from '../components/Sidebar';
 import { Wrapper } from '../components/Wrapper';
 import { Header } from '../components/Header';
-
 import EnrollmentQueue from './EnrollmentQueue';
+
+import Subject from './pages/Subject';
+
 const Registar = () => {
+  useEffect(() => {
+    document.title = 'Registrar';
+  }, []);
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [linkfor, setLinkFor] = useState('register');
@@ -22,7 +27,12 @@ const Registar = () => {
     setLinkFor(index ? 'register' : 'admin');
   };
 
-  const content = <>{selectedLink === 0 && <EnrollmentQueue />}</>;
+  const content = (
+    <>
+      {selectedLink === 1 && <EnrollmentQueue />}
+      {selectedLink === 2 && <Subject />}
+    </>
+  );
   return (
     <div className="flex w-full h-screen">
       <Sidebar

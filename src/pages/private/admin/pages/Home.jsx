@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BadgeIcon from "@mui/icons-material/Badge";
 import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
@@ -11,6 +11,9 @@ import ReusableVirtualizedTable from "../../components/table/ReusableVirtualized
 import { TableCell, TableRow } from "@mui/material";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Administration";
+  }, []);
   const {
     data: dashboard,
     isLoading,
@@ -112,7 +115,7 @@ const Home = () => {
     <>
       {dashboard && (
         <div className="grid md:grid-cols-4 sm:grid-cols-1  gap-2 ">
-          <div className="w-full h-[120px] rounded-lg shadow-md bluring ">
+          <div className="w-full h-[150px] rounded-lg shadow-md bluring ">
             <div className="flex justify-between px-4 py-4">
               <div className=" flex-col items-center p-2   ">
                 <BadgeIcon fontSize="medium" className="text-gray-200  mb-2" />
@@ -132,7 +135,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="w-full h-[120px] rounded-lg shadow-md bluring ">
+          <div className="w-full h-[150px] rounded-lg shadow-md bluring ">
             <div className="flex justify-between px-4 py-4">
               <div className=" flex-col items-center p-2   ">
                 <PersonAddAlt1Icon
@@ -155,7 +158,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="w-full h-[120px] rounded-lg shadow-md bluring ">
+          <div className="w-full h-[150px] rounded-lg shadow-md bluring ">
             <div className="flex justify-between px-4 py-4">
               <div className=" flex-col items-center p-2   ">
                 <GroupAddIcon
@@ -178,7 +181,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="w-full h-[120px] rounded-lg shadow-md bluring ">
+          <div className="w-full h-[150px] rounded-lg shadow-md bluring ">
             <div className="flex justify-between px-4 py-4">
               <div className=" flex-col items-center p-2   ">
                 <TrafficIcon
@@ -203,12 +206,12 @@ const Home = () => {
       )}
 
       <div className="grid grid-cols-3 gap-2 pt-2 ">
-        <div className="col-span-2 w-70 h-[250px] rounded-lg shadow-md bluring">
+        <div className="col-span-2 w-70 h-[350px] rounded-lg shadow-md bluring">
           <CustomLineChart className="w-full" />
         </div>
-        <div className="col-span-1 w-30 h-[250px] rounded-lg shadow-md bluring">
+        <div className="col-span-1 w-30 h-[350px] rounded-lg shadow-md bluring">
           <ReusableVirtualizedTable
-            data={[dashboard.student]} // Wrap student object in an array since data expects an array of objects
+            data={dashboard.students} // Wrap student object in an array since data expects an array of objects
             columns={columns}
             renderHeader={renderHeader}
             renderRow={renderRow}

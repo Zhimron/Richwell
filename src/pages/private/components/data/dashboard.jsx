@@ -1,17 +1,17 @@
-import HomeIcon from '@mui/icons-material/Home';
-import PersonIcon from '@mui/icons-material/Person';
-import Diversity3Icon from '@mui/icons-material/Diversity3';
-import ClassIcon from '@mui/icons-material/Class';
-import EventNoteIcon from '@mui/icons-material/EventNote';
-import ShowChartIcon from '@mui/icons-material/ShowChart';
-import PaymentsIcon from '@mui/icons-material/Payments';
-import MailIcon from '@mui/icons-material/Mail';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import PieChartIcon from '@mui/icons-material/PieChart';
-import TimelineIcon from '@mui/icons-material/Timeline';
-import MapIcon from '@mui/icons-material/Map';
-import BadgeIcon from '@mui/icons-material/Badge';
-import React from 'react';
+import HomeIcon from "@mui/icons-material/Home";
+import PersonIcon from "@mui/icons-material/Person";
+import Diversity3Icon from "@mui/icons-material/Diversity3";
+import ClassIcon from "@mui/icons-material/Class";
+import EventNoteIcon from "@mui/icons-material/EventNote";
+import SubjectIcon from "@mui/icons-material/Subject";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import MailIcon from "@mui/icons-material/Mail";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import PieChartIcon from "@mui/icons-material/PieChart";
+import TimelineIcon from "@mui/icons-material/Timeline";
+import MapIcon from "@mui/icons-material/Map";
+import BadgeIcon from "@mui/icons-material/Badge";
+import React from "react";
 
 // export const data = [
 // {
@@ -60,13 +60,13 @@ export const data2 = [
   {
     label: <h1 className="mb-2 text-left">Manage</h1>,
     icon: <HomeIcon fontSize="small" className="text-gray-200 " />,
-    title: 'Enrollment List',
-    path: '/private/admin-registration/student-enroll',
+    title: "Enrollment List",
+    path: "/private/admin-registration/student-enroll",
   },
   {
     icon: <Diversity3Icon className="text-gray-200" />,
-    title: 'Queue Enrollment',
-    path: '/private/admin-registration/enrollment-queue',
+    title: "Queue Enrollment",
+    path: "/private/admin-registration/enrollment-queue",
   },
   // {
   // icon: <PersonIcon className="text-gray-200" />,
@@ -89,14 +89,14 @@ export const data2 = [
   // path: '/reports',
   // },
   {
-    icon: <PaymentsIcon fontSize="small" className="text-gray-200" />,
-    title: 'Accounting',
-    path: '/accounting',
+    icon: <SubjectIcon fontSize="small" className="text-gray-200" />,
+    title: "List of Subjects",
+    path: "/private/admin-registration/list-subject",
   },
   {
     icon: <MailIcon fontSize="small" className="text-gray-200" />,
-    title: 'Messages',
-    path: '/message',
+    title: "Messages",
+    path: "/message",
   },
 ];
 
@@ -104,35 +104,29 @@ export const charts = [
   {
     label: <h1 className="mb-2 text-left">Manage</h1>,
     icon: <HomeIcon fontSize="small" className="text-gray-200 " />,
-    title: 'Dashboard',
-    path: '/private/admin-dashboard',
+    title: "Dashboard",
+    path: "/private/admin-dashboard",
   },
   {
     icon: <BadgeIcon className="text-gray-200" />,
-    title: 'Employee',
-    path: '/private/employees',
+    title: "Employee",
+    path: "/private/employees",
   },
 
   {
     label: <h1 className="mb-2">Charts</h1>,
     icon: <BarChartIcon fontSize="small" className="text-gray-200 " />,
-    title: 'Bar Chart ',
-    path: '/private/bar-chart',
+    title: "Bar Chart ",
+    path: "/private/bar-chart",
   },
   {
     icon: <TimelineIcon fontSize="small" className="text-gray-200" />,
-    title: 'Line Chart',
-    path: '/private/line-chart',
+    title: "Line Chart",
+    path: "/private/line-chart",
   },
   {
     icon: <PieChartIcon fontSize="small" className="text-gray-200" />,
-    title: 'Pie Chart',
-    path: '/private/pie-chart',
-  },
-
-  {
-    icon: <MapIcon fontSize="small" className="text-gray-200" />,
-    title: 'Geography Chart',
-    path: '*',
+    title: "Pie Chart",
+    path: "/private/pie-chart",
   },
 ];
