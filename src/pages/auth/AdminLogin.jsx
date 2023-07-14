@@ -113,7 +113,7 @@ const AdminLogin = () => {
               <img
                 src="https://richwellcolleges.com/wp-content/uploads/2022/09/logp.png"
                 alt=""
-                className="h-[50px] w-[50px] rounded-full shadow-lg mb-2"
+                className="h-[50px] w-[50px] rounded-full shadow-lg mb-6"
               />
             </div>
             <Formik
@@ -126,7 +126,7 @@ const AdminLogin = () => {
               onSubmit={handleSubmit}
             >
               {({ errors, isValid }) => (
-                <Form className="admin login form">
+                <Form className="admin login form gap-4">
                   <div className="px-4">
                     <Field
                       as={InputText}
@@ -134,12 +134,11 @@ const AdminLogin = () => {
                       type="text"
                       name="id"
                       error={!!errors.id}
-                      helperText={errors.id}
                     />
                     <ErrorMessage
                       name="id"
                       component="div"
-                      className="text-rose-800 duration-200 text-sm text-center mt-2"
+                      className="text-rose-800 duration-200 text-sm text-center relative -top-[80px]"
                     />
                   </div>
                   <div className="py-4 px-4">
@@ -149,12 +148,11 @@ const AdminLogin = () => {
                       type="email"
                       name="email"
                       error={!!errors.email}
-                      helperText={errors.email}
                     />
                     <ErrorMessage
                       name="email"
                       component="div"
-                      className="text-rose-800 duration-200 text-sm text-center mt-2"
+                      className="text-rose-800 duration-200 text-sm text-center relative -top-[75px]"
                     />
                   </div>
                   <div className="px-4 mb-1">
@@ -164,12 +162,11 @@ const AdminLogin = () => {
                       type="password"
                       name="password"
                       error={!!errors.password}
-                      helperText={errors.password}
                     />
                     <ErrorMessage
                       name="password"
                       component="div"
-                      className="text-rose-800 duration-200 text-sm text-center mt-2"
+                      className="text-rose-800 duration-200 text-sm text-center relative -top-[80px]"
                     />
                   </div>
 
@@ -187,24 +184,22 @@ const AdminLogin = () => {
                     </span>
                   </label>
 
-                  <div className="text-center py-3 px-4">
+                  <div className="text-center py-2 px-4">
                     {isValid && (
                       <button
-                        className="bg-purple-800 hover:shadow-md  text-white font-bold capitalize py-2 px-4 w-full rounded p-6"
+                        className="bg-purple-800 hover:shadow-md  text-white font-bold capitalize py-2 px-4 w-full rounded p-4"
                         type="submit"
                       >
                         Login
                       </button>
                     )}
-                    {isValid && (
-                      <h5 className=" text-gray-500 mt-2 ">
-                        New to Employee?
-                        <span className="text-gray-500 pl-1 underline ">
-                          <Link to="/admin-register">Sign up</Link>
-                        </span>
-                      </h5>
-                    )}
                   </div>
+                  <h5 className=" text-gray-500   fixed left-[94px]">
+                    New to Employee?
+                    <span className="text-gray-500 pl-1 underline ">
+                      <Link to="/admin-register">Sign up</Link>
+                    </span>
+                  </h5>
                 </Form>
               )}
             </Formik>

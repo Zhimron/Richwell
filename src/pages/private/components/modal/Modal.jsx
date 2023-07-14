@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import React from "react";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 export const Modal = ({ children, onClose }) => {
   return (
@@ -15,9 +14,6 @@ export const Modal = ({ children, onClose }) => {
           }}
         >
           <div className="w-full h-[5vh] bg-gradient-to-r from-purple-500 to-fuchsia-500 rounded-t-lg"></div>
-          <div className="relative -top-[30px] -right-[18rem] text-white ">
-            <HighlightOffIcon onClick={onClose} />
-          </div>
 
           {children}
         </motion.div>

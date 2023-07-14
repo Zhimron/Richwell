@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Sidebar } from '../components/Sidebar';
-import { Wrapper } from '../components/Wrapper';
-import { Header } from '../components/Header';
-import EnrollmentQueue from './EnrollmentQueue';
+import React, { useState, useEffect } from "react";
+import { Sidebar } from "../components/Sidebar";
+import { Wrapper } from "../components/Wrapper";
+import { Header } from "../components/Header";
+import EnrollmentQueue from "./EnrollmentQueue";
 
-import Subject from './pages/Subject';
+import Subject from "./pages/Subject";
 
 const Registar = () => {
   useEffect(() => {
-    document.title = 'Registrar';
+    document.title = "Registrar";
   }, []);
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [linkfor, setLinkFor] = useState('register');
+  const [linkfor, setLinkFor] = useState("register");
 
   const handleToggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -24,7 +24,7 @@ const Registar = () => {
   };
 
   const handleChange = (index) => {
-    setLinkFor(index ? 'register' : 'admin');
+    setLinkFor(index ? "register" : "admin");
   };
 
   const content = (
@@ -44,8 +44,8 @@ const Registar = () => {
       />
       <div className=" flex-col flex-grow ">
         <Header isExpanded={isExpanded}>
-          {' '}
-          Registration{' '}
+          {" "}
+          Registration{" "}
           <span className="underlined underline-clip"> Dashboard</span>
         </Header>
         <Wrapper isExpanded={isExpanded}>{content}</Wrapper>

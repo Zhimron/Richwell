@@ -195,6 +195,7 @@ const AdminRegister = () => {
                         label="Last Name"
                         type="text"
                         name="lastname"
+                        error={!!errors.lastname}
                       />
                       <ErrorMessage
                         name="lastname"

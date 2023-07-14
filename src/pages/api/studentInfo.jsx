@@ -80,3 +80,19 @@ export const getsAllSubjects = async () => {
   }
   return response.json();
 };
+export const getStudentList = async () => {
+  const response = await fetch(
+    "https://richwellcolleges.edu.ph/api/EnrolledStudents",
+    {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch server data");
+  }
+  return response.json();
+};

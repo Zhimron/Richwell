@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const EnrollmentQueue = () => {
   useEffect(() => {
-    document.title = "EnrollmentQueue";
+    document.title = "Enrollment Queue";
   }, []);
   const [newData, setNewData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
