@@ -1,43 +1,43 @@
-import * as React from "react";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import React from "react";
+import TextField from "@mui/material/TextField";
+import { useState } from "react";
 
 function Datepick(props) {
-  const { label, value, onChange, name } = props;
+  const [focus, setFocused] = useState(false);
+  const [hasValue, setHasValue] = useState(false);
+  const onFocus = () => setFocused(true);
+  const onBlur = () => setFocused(false);
 
-  const handleDateChange = (date) => {
-    const event = {
-      target: {
-        name,
-        value: date.toISOString(),
-      },
-    };
-    onChange(event);
-  };
-
+  const { error, name } = props;
+  let registerProps = {};
+  if (props.register) {
+    registerProps = { ...props.register(name) };
+  }
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker
-        label={label}
-        value={value}
-        onChange={handleDateChange}
-        name={name}
-        inputFormat="MM.dd.yyyy"
-        className={`w-full`}
-        inputVariant="outlined"
-        inputProps={{
-          sx: {
-            "& fieldset": {
-              borderColor: "gray",
-            },
-            "&.Mui-focused fieldset": {
-              borderColor: "purple",
-            },
+    <>
+      <TextField
+        onFocus={onFocus}
+        onBlur={onBlur}
+        InputProps={{
+          classes: {
+            input: "CustomTextField",
           },
         }}
+        onChange={(e) => {
+          if (e.target.value) setHasValue(true);
+          else setHasValue(false);
+        }}
+        label="Date"
+        type={hasValue || focus ? "date" : "text"}
+        className="w-full"
+        variant="filled"
+        color="secondary"
+        {...registerProps}
+        error={!!error}
+        helperText={error?.message}
+        name={name}
       />
-    </LocalizationProvider>
+    </>
   );
 }
 

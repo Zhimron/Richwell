@@ -1,27 +1,33 @@
 import React, { useEffect } from "react";
-
+import { getGrades } from "../api/studentInfo";
+import { useQuery } from "@tanstack/react-query";
+import Table from "../../components/table/Table";
 function Grades() {
   useEffect(() => {
     document.title = "Grades";
   }, []);
+
+  const { data, isLoading, isError, error } = useQuery(["Grades"], getGrades);
+  const columns = [
+    { id: "subject_code", label: "Subject Code", width: 150 },
+    { id: "subject_name", label: "Subject Name", width: 150 },
+    { id: "units", label: "Unit", width: 150 },
+    { id: "grade", label: "Grade", width: 150 },
+    { id: "grade_classification", label: "Grade Classification", width: 150 },
+  ];
+  const rows = data || [];
+
+  console.log("data", rows);
+
   return (
-    <div className=" w-full flex justify-center">
-      <table className="capitalize h-full w-fit">
-        <thead className="text-center">
-          <tr className=" outline">
-            <th className="px-2 py-1">Grade_id</th>
-            <th className="px-2 py-1">grade</th>
-            <th className="px-2 py-1 inline-grid">grade_classification</th>
-          </tr>
-        </thead>
-        <tbody className="text-center">
-          <tr className=" capitalize">
-            <td className="px-2 py-1">none</td>
-            <td className="px-2 py-1">none</td>
-            <td className="px-2 py-1">none</td>
-          </tr>
-        </tbody>
-      </table>
+    <div className=" h-auto w-full">
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : isError ? (
+        <p>Error: {error.message}</p>
+      ) : (
+        <Table columns={columns} rows={rows} />
+      )}
     </div>
   );
 }
